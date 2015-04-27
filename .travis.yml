@@ -1,0 +1,10 @@
+language: ruby
+sudo: false
+cache: bundler
+before_install:
+  - gem install bundler
+before_script:
+  - createdb test
+rvm:
+  - '2.2'
+  - '2.1'
