@@ -48,6 +48,14 @@ create_table :users do |t|
 end
 ```
 
+### Disadvantages
+
+There is one big disadvantage on using uuid identifiers: you can't use  methods like `ActiveRecord::FinderMethods::InstanceMethods#first` and `ActiveRecord::FinderMethods::InstanceMethods#last`, since they are scoped to the sequential id.
+
+Instead of `.first`, you can use [ActiveRecord::FinderMethods::InstanceMethods#take](https://github.com/rails/rails/blob/f52354ad1d15120dcc5284714bee7ee3f052986c/activerecord/lib/active_record/relation/finder_methods.rb#L104), which will use the order implemented by the database.
+
+There's no alternative to `.last`.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
