@@ -1,6 +1,10 @@
 # ActiveRecord::UUID
 
-[![Build Status](https://travis-ci.org/fnando/ar-uuid.svg)](https://travis-ci.org/fnando/ar-uuid)
+[![Travis-CI](https://travis-ci.org/fnando/ar-uuid.png)](https://travis-ci.org/fnando/ar-uuid)
+[![Code Climate](https://codeclimate.com/github/fnando/ar-uuid/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-uuid)
+[![Test Coverage](https://codeclimate.com/github/fnando/ar-uuid/badges/coverage.svg)](https://codeclimate.com/github/fnando/ar-uuid/coverage)
+[![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
+[![Gem](https://img.shields.io/gem/dt/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 
 Override migration methods to support UUID columns without having to be explicit about it.
 
@@ -14,7 +18,7 @@ What this gem will do for you:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ar-uuid'
+gem "ar-uuid"
 ```
 
 And then execute:

@@ -1,1 +1,1 @@
-require 'active_record/uuid'
+require "active_record/uuid"

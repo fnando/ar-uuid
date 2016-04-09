@@ -2,9 +2,15 @@ language: ruby
 sudo: false
 cache: bundler
 before_install:
-  - gem install bundler
+- gem install bundler
 before_script:
-  - createdb test
+- createdb test
 rvm:
-  - '2.2'
-  - '2.1'
+- '2.3.0'
+- '2.2'
+- '2.1'
+env:
+  global:
+    secure: jx2vy7MRmkFfs2DUx4+Yh7sxMw8yYlPyZuGt4f3S1Myb3voOrsht/9mJ5QENhKX/Rx+u5BBHCPS/YgKZKb12xYCQZwH3NLTk0etQZCykFfgtOmKYEJmIro/61Ctqdz/lo9LUQ3PRxs0bfvlOeygGTc6+XmK2KpyYF1RSIPJ+A2s=
+notifications:
+  email: false
