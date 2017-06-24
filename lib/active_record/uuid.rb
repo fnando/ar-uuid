@@ -6,5 +6,6 @@ module ActiveRecord
     require "active_record/uuid/schema"
     require "active_record/uuid/table_definition"
     require "active_record/uuid/ext"
+    require "active_record/uuid/utils"
   end
 end

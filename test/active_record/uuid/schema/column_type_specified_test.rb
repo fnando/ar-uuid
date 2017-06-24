@@ -3,7 +3,7 @@ require "test_helper"
 class ColumnTypeSpecifiedTest < Minitest::Test
   test "creates primary key as integer column" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample, id: :primary_key
     end
 
@@ -14,7 +14,7 @@ class ColumnTypeSpecifiedTest < Minitest::Test
 
   test "creates reference as integer column" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample do |t|
         t.references :user, type: :integer
       end
@@ -27,7 +27,7 @@ class ColumnTypeSpecifiedTest < Minitest::Test
 
   test "creates reference as integer column (belongs_to)" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample do |t|
         t.belongs_to :user, type: :integer
       end
@@ -40,7 +40,7 @@ class ColumnTypeSpecifiedTest < Minitest::Test
 
   test "creates reference as integer column (add_reference)" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample
       add_reference :sample, :user, type: :integer
     end

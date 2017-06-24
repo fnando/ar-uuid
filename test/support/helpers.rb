@@ -1,6 +1,6 @@
-def schema(&block)
+def schema(uuid: true, &block)
   ActiveRecord::Schema.define(version: 0) do
-    enable_extension 'uuid-ossp'
+    enable_extension "uuid-ossp" if uuid
     instance_eval(&block) if block
   end
 end

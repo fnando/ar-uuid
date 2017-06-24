@@ -3,7 +3,7 @@ require "test_helper"
 class DefaultColumnTypeTest < Minitest::Test
   test "creates primary key as uuid column" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample
     end
 
@@ -14,7 +14,7 @@ class DefaultColumnTypeTest < Minitest::Test
 
   test "creates reference as uuid column" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample do |t|
         t.references :user
       end
@@ -27,7 +27,7 @@ class DefaultColumnTypeTest < Minitest::Test
 
   test "creates reference as uuid column (belongs_to)" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample do |t|
         t.belongs_to :user
       end
@@ -40,7 +40,7 @@ class DefaultColumnTypeTest < Minitest::Test
 
   test "creates reference as uuid (add_reference)" do
     schema do
-      drop_table :sample if table_exists?(:sample)
+      drop_table :sample if data_source_exists?(:sample)
       create_table :sample
       add_reference :sample, :user
     end

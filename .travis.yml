@@ -6,11 +6,14 @@ before_install:
 before_script:
 - createdb test
 rvm:
-- '2.3.0'
-- '2.2'
-- '2.1'
+- 2.4.1
+gemfiles:
+  - gemfiles/5_1.gemfile
+  - gemfiles/5_0.gemfile
 env:
   global:
     secure: jx2vy7MRmkFfs2DUx4+Yh7sxMw8yYlPyZuGt4f3S1Myb3voOrsht/9mJ5QENhKX/Rx+u5BBHCPS/YgKZKb12xYCQZwH3NLTk0etQZCykFfgtOmKYEJmIro/61Ctqdz/lo9LUQ3PRxs0bfvlOeygGTc6+XmK2KpyYF1RSIPJ+A2s=
 notifications:
   email: false
+after_success:
+- bundle exec codeclimate-test-reporter
