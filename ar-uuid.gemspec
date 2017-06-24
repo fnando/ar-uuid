@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %[Add UUID support for ActiveRecord. It enforces uuid primary keys, fixes ActiveRecord"s first/last methods and more.]
   spec.description   = spec.summary
   spec.homepage      = "http://rubygems.org/gems/ar-uuid"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
