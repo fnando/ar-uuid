@@ -5,9 +5,11 @@ before_install:
 - gem install bundler
 before_script:
 - createdb test
+addons:
+  postgresql: "9.4"
 rvm:
 - 2.4.1
-gemfiles:
+gemfile:
   - gemfiles/5_1.gemfile
   - gemfiles/5_0.gemfile
   - gemfiles/4_2.gemfile
