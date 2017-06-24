@@ -10,5 +10,9 @@ def create_model(table_name = 'sample', &block)
     self.table_name = table_name
     self.reset_column_information
     instance_eval(&block) if block
+
+    def self.name
+      "Sample"
+    end
   end
 end

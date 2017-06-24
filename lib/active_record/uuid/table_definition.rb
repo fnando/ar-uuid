@@ -4,6 +4,7 @@ module ActiveRecord
       def references(*args)
         options = args.extract_options!
         options[:type] = :uuid unless options.include?(:type)
+        options[:null] = !::ActiveRecord::UUID::Utils.belongs_to_required_by_default unless options.include?(:null)
         args << options
 
         super(*args)

@@ -32,6 +32,14 @@ module ActiveRecord
       def self.uuid_default_function
         FUNCTION_NAMES.fetch(uuid_extname)
       end
+
+      def self.belongs_to_required_by_default
+        if ::ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)
+          ::ActiveRecord::Base.belongs_to_required_by_default
+        else
+          false
+        end
+      end
     end
   end
 end

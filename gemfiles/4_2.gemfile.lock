@@ -1,0 +1,81 @@
+PATH
+  remote: ..
+  specs:
+    ar-uuid (0.1.2)
+      activerecord
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (4.2.8)
+      activesupport (= 4.2.8)
+      builder (~> 3.1)
+    activerecord (4.2.8)
+      activemodel (= 4.2.8)
+      activesupport (= 4.2.8)
+      arel (~> 6.0)
+    activesupport (4.2.8)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    arel (6.0.4)
+    awesome_print (1.8.0)
+    builder (3.2.3)
+    byebug (9.0.6)
+    codeclimate-test-reporter (1.0.8)
+      simplecov (<= 0.13)
+    coderay (1.1.1)
+    docile (1.1.5)
+    i18n (0.8.4)
+    json (2.1.0)
+    metaclass (0.0.4)
+    method_source (0.8.2)
+    minitest (5.10.2)
+    minitest-utils (0.3.1)
+      minitest
+    mocha (1.2.1)
+      metaclass (~> 0.0.1)
+    pg (0.21.0)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.4.2)
+      byebug (~> 9.0)
+      pry (~> 0.10)
+    pry-meta (0.0.10)
+      awesome_print
+      pry
+      pry-byebug
+      pry-remote
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
+    rake (12.0.0)
+    simplecov (0.13.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.1)
+    slop (3.6.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (~> 4.2.0)
+  ar-uuid!
+  bundler
+  codeclimate-test-reporter
+  minitest-utils
+  mocha
+  pg
+  pry-meta
+  rake
+
+BUNDLED WITH
+   1.15.1
