@@ -9,7 +9,6 @@ module ActiveRecord
 
         super(*args)
       end
-
       alias_method :belongs_to, :references
 
       def primary_key(name, type = :primary_key, **options)

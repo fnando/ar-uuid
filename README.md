@@ -1,6 +1,6 @@
 # ActiveRecord::UUID
 
-[![Travis-CI](https://travis-ci.org/fnando/ar-uuid.png)](https://travis-ci.org/fnando/ar-uuid)
+[![Travis-CI](https://travis-ci.org/fnando/ar-uuid.svg)](https://travis-ci.org/fnando/ar-uuid)
 [![Code Climate](https://codeclimate.com/github/fnando/ar-uuid/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-uuid)
 [![Test Coverage](https://codeclimate.com/github/fnando/ar-uuid/badges/coverage.svg)](https://codeclimate.com/github/fnando/ar-uuid/coverage)
 [![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
