@@ -56,7 +56,26 @@ end
 
 There is one big disadvantage on using uuid identifiers: you can't use  methods like `ActiveRecord::FinderMethods::InstanceMethods#first` and `ActiveRecord::FinderMethods::InstanceMethods#last`, since they are scoped to the sequential id.
 
-Instead of `.first`, you can use [ActiveRecord::FinderMethods::InstanceMethods#take](https://github.com/rails/rails/blob/f52354ad1d15120dcc5284714bee7ee3f052986c/activerecord/lib/active_record/relation/finder_methods.rb#L104), which will use the order implemented by the database.
+The easiest alternative is ordering results and calling `first`/`last`. You can either create a sequence, or use the `created_at`/`updated_at` columns:
+
+```ruby
+# Get first record
+User.order(created_at: :asc).first
+
+# Get last record
+User.order(created_at: :desc).first
+
+# Use scopes
+class User < ApplicationRecord
+  scope :newer, -> { order(created_at: :desc) }
+  scope :older, -> { order(created_at: :asc) }
+end
+
+User.older.first
+User.newer.first
+```
+
+You can also replace `.first` with [ActiveRecord::FinderMethods::InstanceMethods#take](https://github.com/rails/rails/blob/f52354ad1d15120dcc5284714bee7ee3f052986c/activerecord/lib/active_record/relation/finder_methods.rb#L104), which will use the order implemented by the database.
 
 There's no alternative to `.last`.
 
