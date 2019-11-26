@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 if ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)

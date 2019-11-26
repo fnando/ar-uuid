@@ -1,19 +1,22 @@
+---
 language: ruby
 sudo: false
 cache: bundler
 before_install:
-- gem install bundler
+  - gem install bundler
 before_script:
-- createdb test
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - createdb test
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
 addons:
   postgresql: '9.4'
 rvm:
-- 2.5.2
+  - 2.6.5
+  - 2.5.7
 gemfile:
-- Gemfile
+- gemfiles/6_0.gemfile
+- gemfiles/5_2.gemfile
 - gemfiles/5_1.gemfile
 - gemfiles/5_0.gemfile
 - gemfiles/4_2.gemfile

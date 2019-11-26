@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Minitest
   class Test
     def assert_uuid_column(model_class, column_name)

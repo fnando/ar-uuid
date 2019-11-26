@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def schema(uuid: true, &block)
   ActiveRecord::Schema.define(version: 0) do
     enable_extension "uuid-ossp" if uuid

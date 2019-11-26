@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActiveRecord
   module UUID
     MissingExtensionError = Class.new(StandardError) do
@@ -7,7 +9,7 @@ module ActiveRecord
     end
 
     module Utils
-      EXTENSIONS_SQL = <<-SQL.freeze
+      EXTENSIONS_SQL = <<-SQL
         select
           extname
         from pg_extension
@@ -26,6 +28,7 @@ module ActiveRecord
         connection = ::ActiveRecord::Base.connection
         result = connection.execute(EXTENSIONS_SQL).first
         raise MissingExtensionError unless result
+
         result.fetch("extname")
       end
 

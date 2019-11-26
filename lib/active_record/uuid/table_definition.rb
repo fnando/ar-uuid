@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActiveRecord
   module UUID
     module TableDefinition
@@ -9,7 +11,7 @@ module ActiveRecord
 
         super(*args)
       end
-      alias_method :belongs_to, :references
+      alias belongs_to references
 
       def primary_key(name, type = :primary_key, **options)
         options[:default] = ::ActiveRecord::UUID::Utils.uuid_default_function

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActiveRecord
   module UUID
     require "active_record"
