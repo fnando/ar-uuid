@@ -4,12 +4,15 @@ module ActiveRecord
   module UUID
     MissingExtensionError = Class.new(StandardError) do
       def initialize
-        super(%[Use either `enable_extension "uuid-ossp"` or `enable_extension "pgcrypto"`])
+        super(
+          'Use either `enable_extension "uuid-ossp"` or' \
+          '`enable_extension "pgcrypto"`'
+        )
       end
     end
 
     module Utils
-      EXTENSIONS_SQL = <<-SQL
+      EXTENSIONS_SQL = <<~SQL
         select
           extname
         from pg_extension

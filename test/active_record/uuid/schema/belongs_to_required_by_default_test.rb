@@ -14,7 +14,13 @@ if ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)
         end
       end
 
-      column = ActiveRecord::Base.connection.execute(%[SELECT is_nullable FROM information_schema.columns WHERE table_name = 'sample' AND column_name = 'user_id']).first
+      sql = <<~SQL
+        SELECT is_nullable
+        FROM information_schema.columns
+        WHERE table_name = 'sample' AND column_name = 'user_id'
+      SQL
+
+      column = ActiveRecord::Base.connection.execute(sql).first
       assert_equal "NO", column["is_nullable"]
 
       model_class = create_model { belongs_to :user }
@@ -33,7 +39,13 @@ if ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)
         end
       end
 
-      column = ActiveRecord::Base.connection.execute(%[SELECT is_nullable FROM information_schema.columns WHERE table_name = 'sample' AND column_name = 'user_id']).first
+      sql = <<~SQL
+        SELECT is_nullable
+        FROM information_schema.columns
+        WHERE table_name = 'sample' AND column_name = 'user_id'
+      SQL
+
+      column = ActiveRecord::Base.connection.execute(sql).first
       assert_equal "YES", column["is_nullable"]
 
       model_class = create_model { belongs_to :user }
@@ -52,7 +64,13 @@ if ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)
         end
       end
 
-      column = ActiveRecord::Base.connection.execute(%[SELECT is_nullable FROM information_schema.columns WHERE table_name = 'sample' AND column_name = 'user_id']).first
+      sql = <<~SQL
+        SELECT is_nullable
+        FROM information_schema.columns
+        WHERE table_name = 'sample' AND column_name = 'user_id'
+      SQL
+
+      column = ActiveRecord::Base.connection.execute(sql).first
       assert_equal "YES", column["is_nullable"]
     end
   end

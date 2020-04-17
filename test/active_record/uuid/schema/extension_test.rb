@@ -27,7 +27,8 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
 
       model_class = create_model
 
-      assert_equal "uuid_generate_v4()", model_class.columns_hash["id"].default_function
+      assert_equal "uuid_generate_v4()",
+                   model_class.columns_hash["id"].default_function
     end
 
     test "uses pgcrypto" do
@@ -41,7 +42,8 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
 
       model_class = create_model
 
-      assert_equal "gen_random_uuid()", model_class.columns_hash["id"].default_function
+      assert_equal "gen_random_uuid()",
+                   model_class.columns_hash["id"].default_function
     end
 
     test "works with both extensions enabled" do
@@ -55,7 +57,8 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
 
       model_class = create_model
 
-      assert_equal "gen_random_uuid()", model_class.columns_hash["id"].default_function
+      assert_equal "gen_random_uuid()",
+                   model_class.columns_hash["id"].default_function
     end
   end
 end
