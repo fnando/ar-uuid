@@ -21,7 +21,6 @@ gemfile:
   - gemfiles/5_2.gemfile
   - gemfiles/5_1.gemfile
   - gemfiles/5_0.gemfile
-  - gemfiles/4_2.gemfile
 notifications:
   email: false
 after_script:
