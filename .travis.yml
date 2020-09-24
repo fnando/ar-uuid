@@ -6,24 +6,26 @@ before_install:
   - gem install bundler
 before_script:
   - createdb test
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - "curl -L
+    https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter"
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
 addons:
-  postgresql: '9.4'
+  postgresql: "9.4"
 rvm:
+  - 2.7.1
   - 2.6.5
-  - 2.5.7
 gemfile:
-- gemfiles/6_0.gemfile
-- gemfiles/5_2.gemfile
-- gemfiles/5_1.gemfile
-- gemfiles/5_0.gemfile
-- gemfiles/4_2.gemfile
+  - gemfiles/6_0.gemfile
+  - gemfiles/5_2.gemfile
+  - gemfiles/5_1.gemfile
+  - gemfiles/5_0.gemfile
+  - gemfiles/4_2.gemfile
 notifications:
   email: false
 after_script:
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 env:
   global:
     secure: e3q9FNNyflF3TXteIJ/GAMHiMBpDgwNX5CbnogE+n60GulXI1TgoWHyXQwlSKQWHHm5yKTQ+Gn4oPQndocG4dfD0EEb56XMCvwgyuUFRkVQDqaycEBvSN/QDAV1SOTH0aZLv0G+BC6PtDvEmjbC3FLtJzp2t1SXaZvDUBUEp7dU=
