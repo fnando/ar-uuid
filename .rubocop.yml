@@ -7,3 +7,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - vendor/**/*
+
+Naming/FileName:
+  Exclude:
+    - lib/ar-uuid.rb
