@@ -56,10 +56,38 @@ create_table :users do |t|
 end
 ```
 
-### Disadvantages
+### Sorting
 
-There is one big disadvantage on using uuid identifiers: you can't use methods
-like `ActiveRecord::FinderMethods::InstanceMethods#first` and
+#### Rails 6.0 or newer
+
+If you're using Rails 6.0 or newer, you can set a default sorting with
+[ActiveRecord::ModelSchema.implicit_order_column](https://api.rubyonrails.org/classes/ActiveRecord/ModelSchema.html#method-c-implicit_order_column),
+so methods like `ActiveRecord::FinderMethods::InstanceMethods#first` and
+`ActiveRecord::FinderMethods::InstanceMethods#last` will work transparently, as
+long as you define another column for sorting, such as `created_at` (you may
+need to add an index).
+
+The following example sets a default behavior to always sort using `created_at`
+(when available). On your abstract model, add the following lines:
+
+```ruby
+class ApplicationRecord < ActiveRecord::Base
+  self.abstract_class = true
+
+  def self.inherited(child_class)
+    super
+
+    return unless child_class.columns.any? {|col| col.name == "created_at" }
+
+    child_class.implicit_order_column ||= "created_at"
+  end
+end
+```
+
+#### Older Rails versions
+
+For older Rails versions, you can't use methods like
+`ActiveRecord::FinderMethods::InstanceMethods#first` and
 `ActiveRecord::FinderMethods::InstanceMethods#last`, since they are scoped to
 the sequential id.
 
