@@ -1,17 +1,18 @@
 # ActiveRecord::UUID
 
-[![Travis-CI](https://travis-ci.org/fnando/ar-uuid.svg)](https://travis-ci.org/fnando/ar-uuid)
+[![Tests](https://github.com/fnando/ar-uuid/workflows/Tests/badge.svg)](https://github.com/fnando/ar-uuid/actions?query=workflow%3ATests)
 [![Code Climate](https://codeclimate.com/github/fnando/ar-uuid/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-uuid)
-[![Test Coverage](https://codeclimate.com/github/fnando/ar-uuid/badges/coverage.svg)](https://codeclimate.com/github/fnando/ar-uuid/coverage)
 [![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 [![Gem](https://img.shields.io/gem/dt/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 
-Override migration methods to support UUID columns without having to be explicit about it.
+Override migration methods to support UUID columns without having to be explicit
+about it.
 
 What this gem will do for you:
 
 - When creating new tables, will set the `id` column as `uuid`.
-- When creating associations with `t.belongs_to`, `t.references` or `add_reference`, will set the column type as `uuid`.
+- When creating associations with `t.belongs_to`, `t.references` or
+  `add_reference`, will set the column type as `uuid`.
 
 ## Installation
 
@@ -31,7 +32,9 @@ Or install it yourself as:
 
 ## Usage
 
-There's no setup. Just adding the gem to your Gemfile is enough. When you create a new table, the `id` column will be defined as `uuid`. This is also true for references.
+There's no setup. Just adding the gem to your Gemfile is enough. When you create
+a new table, the `id` column will be defined as `uuid`. This is also true for
+references.
 
 ```ruby
 create_table :users
@@ -44,7 +47,8 @@ create_table :posts do |t|
 end
 ```
 
-If you need a serial column, AR's PostgreSQL supports the `bigserial` column type.
+If you need a serial column, AR's PostgreSQL supports the `bigserial` column
+type.
 
 ```ruby
 create_table :users do |t|
@@ -54,9 +58,13 @@ end
 
 ### Disadvantages
 
-There is one big disadvantage on using uuid identifiers: you can't use  methods like `ActiveRecord::FinderMethods::InstanceMethods#first` and `ActiveRecord::FinderMethods::InstanceMethods#last`, since they are scoped to the sequential id.
+There is one big disadvantage on using uuid identifiers: you can't use methods
+like `ActiveRecord::FinderMethods::InstanceMethods#first` and
+`ActiveRecord::FinderMethods::InstanceMethods#last`, since they are scoped to
+the sequential id.
 
-The easiest alternative is ordering results and calling `first`/`last`. You can either create a sequence, or use the `created_at`/`updated_at` columns:
+The easiest alternative is ordering results and calling `first`/`last`. You can
+either create a sequence, or use the `created_at`/`updated_at` columns:
 
 ```ruby
 # Get first record
@@ -75,15 +83,20 @@ User.older.first
 User.newer.first
 ```
 
-You can also replace `.first` with [ActiveRecord::FinderMethods::InstanceMethods#take](https://github.com/rails/rails/blob/f52354ad1d15120dcc5284714bee7ee3f052986c/activerecord/lib/active_record/relation/finder_methods.rb#L104), which will use the order implemented by the database.
+You can also replace `.first` with
+[ActiveRecord::FinderMethods::InstanceMethods#take](https://github.com/rails/rails/blob/f52354ad1d15120dcc5284714bee7ee3f052986c/activerecord/lib/active_record/relation/finder_methods.rb#L104),
+which will use the order implemented by the database.
 
 There's no alternative to `.last`.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-4
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`bin/console` for an interactive prompt that will allow you to experiment. 4 To
+install this gem onto your local machine, run `bundle exec rake install`. To
+release a new version, update the version number in `version.rb`, and then run
+`bundle exec rake release` to create a git tag for the version, push git commits
+and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
