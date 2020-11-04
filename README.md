@@ -5,7 +5,8 @@
 [![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 [![Gem](https://img.shields.io/gem/dt/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 
-Add UUID support for ActiveRecord. It also enforces uuid as primary keys.
+Override migration methods to support UUID columns without having to be explicit
+about it.
 
 ## Installation
 

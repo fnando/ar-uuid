@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = AR::UUID::VERSION
   spec.authors       = ["Nando Vieira"]
   spec.email         = ["fnando.vieira@gmail.com"]
-  spec.summary       = "Add UUID support for ActiveRecord. It also enforces " \
-                       "uuid as primary keys."
+  spec.summary       = "Override migration methods to support UUID columns " \
+                       "without having to be explicit about it."
   spec.description   = spec.summary
   spec.homepage      = "http://rubygems.org/gems/ar-uuid"
   spec.license       = "MIT"
