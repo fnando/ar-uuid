@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require "./lib/active_record/uuid/version"
+require "./lib/ar/uuid/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "ar-uuid"
-  spec.version       = ActiveRecord::UUID::VERSION
+  spec.version       = AR::UUID::VERSION
   spec.authors       = ["Nando Vieira"]
   spec.email         = ["fnando.vieira@gmail.com"]
-  spec.summary       = "Add UUID support for ActiveRecord. It enforces uuid " \
-                       "primary keys, fixes ActiveRecord's first/last " \
-                       "methods and more."
+  spec.summary       = "Add UUID support for ActiveRecord. It also enforces " \
+                       "uuid as primary keys."
   spec.description   = spec.summary
   spec.homepage      = "http://rubygems.org/gems/ar-uuid"
   spec.license       = "MIT"

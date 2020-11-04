@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ActiveRecord
+module AR
   module UUID
     MissingExtensionError = Class.new(StandardError) do
       def initialize

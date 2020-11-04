@@ -3,6 +3,12 @@
 require "test_helper"
 
 class ColumnTypeSpecifiedTest < Minitest::Test
+  setup do
+    schema do
+      enable_extension "pgcrypto"
+    end
+  end
+
   test "creates primary key as integer column" do
     schema do
       drop_table :sample if data_source_exists?(:sample)

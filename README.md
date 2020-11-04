@@ -1,34 +1,23 @@
-# ActiveRecord::UUID
+# ar-uuid
 
-[![Tests](https://github.com/fnando/ar-uuid/workflows/Tests/badge.svg)](https://github.com/fnando/ar-uuid/actions?query=workflow%3ATests)
+[![Tests](https://github.com/fnando/ar-uuid/workflows/Tests/badge.svg)](https://github.com/fnando/ar-uuid)
 [![Code Climate](https://codeclimate.com/github/fnando/ar-uuid/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-uuid)
 [![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 [![Gem](https://img.shields.io/gem/dt/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 
-Override migration methods to support UUID columns without having to be explicit
-about it.
-
-What this gem will do for you:
-
-- When creating new tables, will set the `id` column as `uuid`.
-- When creating associations with `t.belongs_to`, `t.references` or
-  `add_reference`, will set the column type as `uuid`.
+Add UUID support for ActiveRecord. It also enforces uuid as primary keys.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+```bash
+gem install ar-uuid
+```
+
+Or add the following line to your project's Gemfile:
 
 ```ruby
 gem "ar-uuid"
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ar-uuid
 
 ## Usage
 
@@ -117,19 +106,27 @@ which will use the order implemented by the database.
 
 There's no alternative to `.last`.
 
-## Development
+## Maintainer
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run
-`bin/console` for an interactive prompt that will allow you to experiment. 4 To
-install this gem onto your local machine, run `bundle exec rake install`. To
-release a new version, update the version number in `version.rb`, and then run
-`bundle exec rake release` to create a git tag for the version, push git commits
-and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+- [Nando Vieira](https://github.com/fnando)
+
+## Contributors
+
+- https://github.com/fnando/ar-uuid/contributors
 
 ## Contributing
 
-1. Fork it ( https://github.com/fnando/ar-uuid/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+For more details about how to contribute, please read
+https://github.com/fnando/ar-uuid/blob/main/CONTRIBUTING.md.
+
+## License
+
+The gem is available as open source under the terms of the
+[MIT License](https://opensource.org/licenses/MIT). A copy of the license can be
+found at https://github.com/fnando/ar-uuid/blob/main/LICENSE.md.
+
+## Code of Conduct
+
+Everyone interacting in the ar-uuid project's codebases, issue trackers, chat
+rooms and mailing lists is expected to follow the
+[code of conduct](https://github.com/fnando/ar-uuid/blob/main/CODE_OF_CONDUCT.md).

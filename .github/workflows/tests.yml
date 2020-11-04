@@ -7,18 +7,20 @@ on:
   push:
     branches:
       - main
+
   schedule:
     - cron: "0 10 * * *"
 
 jobs:
   build:
-    name: Tests with Ruby ${{ matrix.ruby }} with ${{ matrix.gemfile }}
+    name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
     runs-on: "ubuntu-latest"
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["2.7.x", "2.6.x"]
+        ruby: [2.6.x, 2.7.x]
         gemfile:
+          - Gemfile
           - gemfiles/6_0.gemfile
           - gemfiles/5_2.gemfile
           - gemfiles/5_1.gemfile
@@ -40,19 +42,23 @@ jobs:
           path: vendor/bundle
           key: >
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/*.gemspec') }}
+            hashFiles(matrix.gemfile) }}
           restore-keys: >
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/*.gemspec') }}
+            hashFiles(matrix.gemfile) }}
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
 
-      - name: Install PostgreSQL 11 client
+      - name: Install PostgreSQL client
+        env:
+          PGHOST: localhost
+          PGUSER: postgres
         run: |
           sudo apt-get -yqq install libpq-dev
+          psql -U postgres -c "create database test"
 
       - name: Install gem dependencies
         env:
@@ -68,5 +74,4 @@ jobs:
           PGUSER: postgres
           BUNDLE_GEMFILE: ${{ matrix.gemfile }}
         run: |
-          psql -U postgres -c "create database test"
           bundle exec rake

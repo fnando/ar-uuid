@@ -4,9 +4,15 @@ require "test_helper"
 
 if ActiveRecord::VERSION::STRING >= "5.1.0"
   class ExtensionTest < Minitest::Test
+    setup do
+      schema do
+        enable_extension "pgcrypto"
+      end
+    end
+
     test "raises exception for missing extension" do
-      assert_raises(ActiveRecord::UUID::MissingExtensionError) do
-        schema(uuid: false) do
+      assert_raises(AR::UUID::MissingExtensionError) do
+        schema do
           disable_extension "uuid-ossp"
           disable_extension "pgcrypto"
 
@@ -17,7 +23,7 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
     end
 
     test "uses uuid-ossp" do
-      schema(uuid: false) do
+      schema do
         disable_extension "pgcrypto"
         enable_extension "uuid-ossp"
 
@@ -32,7 +38,7 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
     end
 
     test "uses pgcrypto" do
-      schema(uuid: false) do
+      schema do
         disable_extension "uuid-ossp"
         enable_extension "pgcrypto"
 
@@ -47,7 +53,7 @@ if ActiveRecord::VERSION::STRING >= "5.1.0"
     end
 
     test "works with both extensions enabled" do
-      schema(uuid: false) do
+      schema do
         enable_extension "uuid-ossp"
         enable_extension "pgcrypto"
 
