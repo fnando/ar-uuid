@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ActiveRecord
+module AR
   module UUID
     module TableDefinition
       def references(*args)
@@ -9,17 +9,15 @@ module ActiveRecord
 
         unless options.include?(:null)
           options[:null] =
-            !::ActiveRecord::UUID::Utils.belongs_to_required_by_default
+            !::AR::UUID::Utils.belongs_to_required_by_default
         end
 
-        args << options
-
-        super(*args)
+        super(*args, **options)
       end
       alias belongs_to references
 
       def primary_key(name, type = :primary_key, **options)
-        options[:default] = ::ActiveRecord::UUID::Utils.uuid_default_function
+        options[:default] = ::AR::UUID::Utils.uuid_default_function
         super(name, type, **options)
       end
     end

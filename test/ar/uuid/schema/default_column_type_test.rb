@@ -3,6 +3,12 @@
 require "test_helper"
 
 class DefaultColumnTypeTest < Minitest::Test
+  setup do
+    schema do
+      enable_extension "pgcrypto"
+    end
+  end
+
   test "creates primary key as uuid column" do
     schema do
       drop_table :sample if data_source_exists?(:sample)

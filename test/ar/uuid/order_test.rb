@@ -4,6 +4,12 @@ require "test_helper"
 
 if ActiveRecord::Base.respond_to?(:implicit_order_column)
   class OrderTest < Minitest::Test
+    setup do
+      schema do
+        enable_extension "pgcrypto"
+      end
+    end
+
     teardown do
       ActiveRecord::Base.logger = nil
       User.implicit_order_column = nil
@@ -62,7 +68,8 @@ if ActiveRecord::Base.respond_to?(:implicit_order_column)
         end
       end
 
-      model_a = create_model("users") do
+      model_a = Class.new(ActiveRecord::Base) do
+        self.table_name = "users"
         self.implicit_order_column = "updated_at"
 
         def self.name

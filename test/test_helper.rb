@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
 require "simplecov"
-SimpleCov.start
+SimpleCov.start do
+  add_filter(%r{test/support})
+end
 
 require "bundler/setup"
-Bundler.require
+require "ar-uuid"
 
 require "minitest/utils"
 require "minitest/autorun"
 
-ActiveRecord::Base.logger = nil
-ActiveRecord::Migration.verbose = false
-ActiveRecord::Base.establish_connection "postgres:///test"
-
-require_relative "support/matcher"
-require_relative "support/helpers"
-require_relative "support/models"
+Dir["#{__dir__}/support/**/*.rb"].sort.each do |file|
+  require file
+end

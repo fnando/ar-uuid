@@ -4,6 +4,12 @@ require "test_helper"
 
 if ActiveRecord::Base.respond_to?(:belongs_to_required_by_default)
   class BelongsToRequiredByDefaultTest < Minitest::Test
+    setup do
+      schema do
+        enable_extension "pgcrypto"
+      end
+    end
+
     test "requires association" do
       ActiveRecord::Base.belongs_to_required_by_default = true
 
