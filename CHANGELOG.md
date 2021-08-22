@@ -14,6 +14,7 @@ Prefix your message with one of the following:
 ## Unreleased
 
 - [Changed] Change namespace from `ActiveRecord::UUID` to `AR::UUID`.
+- [Removed] Dropped support for Rails 4.2.
 
 ## v0.2.1 - 2019-11-26
 
