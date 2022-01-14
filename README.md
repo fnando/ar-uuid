@@ -1,7 +1,6 @@
 # ar-uuid
 
-[![Tests](https://github.com/fnando/ar-uuid/workflows/Tests/badge.svg)](https://github.com/fnando/ar-uuid)
-[![Code Climate](https://codeclimate.com/github/fnando/ar-uuid/badges/gpa.svg)](https://codeclimate.com/github/fnando/ar-uuid)
+[![Tests](https://github.com/fnando/ar-uuid/workflows/ruby-tests/badge.svg)](https://github.com/fnando/ar-uuid)
 [![Gem](https://img.shields.io/gem/v/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 [![Gem](https://img.shields.io/gem/dt/ar-uuid.svg)](https://rubygems.org/gems/ar-uuid)
 
