@@ -22,10 +22,10 @@ module AR
         limit 1
       SQL
 
-      FUNCTION_NAMES = {
+      FUNCTION_NAMES = { # rubocop:disable Style/MutableConstant
         "uuid-ossp" => "uuid_generate_v4()",
         "pgcrypto" => "gen_random_uuid()"
-      }.freeze
+      }
 
       def self.uuid_extname
         connection = ::ActiveRecord::Base.connection
